@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4017967785982722033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4017967785982722039}
+  - component: {fileID: 4017967785982722038}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4017967785982722039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017967785982722033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4017967785982722038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017967785982722033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df8548711124964b994c529adce1d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyArr:
+  - {fileID: 8316055734137889191, guid: a4f59e1b249392942ac23268dd1510c4, type: 3}
+  - {fileID: 8316055734137889191, guid: a4f59e1b249392942ac23268dd1510c4, type: 3}
+  - {fileID: 8863640230359860828, guid: 34975f920d2df3d4e9684e3ad522bfe1, type: 3}
+  - {fileID: 8863640230359860828, guid: 34975f920d2df3d4e9684e3ad522bfe1, type: 3}
+  rows: 4
+  cols: 13
+  rowSpace: 1.5
+  colSpace: 1.2
+  Missile: {fileID: 6847916510021839440, guid: 93a6baefd3499b0438477d9df443417b, type: 3}
+  Bunker: {fileID: 6598345337232224895, guid: a905059f81007f64c8c6304646889dae, type: 3}
+  score: {fileID: 0}
+  waveText: {fileID: 0}
+  wave: 0
+  bunkerNum: 4
+  WaveComplete: {fileID: 0}
+  LostScreen: {fileID: 0}
+  HeartContainer: {fileID: 0}
+  laserIcon: {fileID: 0}
+  player: {fileID: 0}
+  playerMovement: {fileID: 0}
+  addBunker: 0
+  wText: {fileID: 0}
