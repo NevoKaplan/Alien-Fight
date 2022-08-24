@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private bool wClicked;
     [SerializeField] Text wText;
 
+    private AudioManager audioManager;
+
 
 
     // Start is called before the first frame update
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         addBunker = 0;
         playerMovement = player.GetComponent<PlayerMovement>();
         hearts = HeartContainer.GetComponent<Hearts>();
+        audioManager = FindObjectOfType<AudioManager>();
         Restart();
         score.text = "0";
         bunkers = new List<GameObject>();
@@ -153,6 +156,7 @@ public class GameManager : MonoBehaviour
         amountKilled++;
         score.text = (1000 * (wave-1) + (amountKilled * times)).ToString("0");
         if (amountKilled == maxAmount) {
+
             Enemy[] enemy = GetComponentsInChildren<Enemy>();
             for (int i = 0; i < enemy.Length; i++) {
                 if (enemy[i] != null) {

@@ -17,11 +17,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] PlayerMovement player;
     public float OGspeed;
     [SerializeField] Image coverImage;
+    private AudioManager audioManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         shootClicked = false;
         bulletsPerSecond = 4f;
         player = GetComponent<PlayerMovement>();
@@ -40,12 +42,15 @@ public class Weapon : MonoBehaviour
             coverImage.fillAmount = 0;
             if (Input.GetButtonDown("Fire2"))
             {
+                audioManager.play("LaserSound");
                 StartCoroutine(shootLaser());
                 timer = cooldown;
             }
         }
         else 
         {
+            if (Input.GetButtonDown("Fire2"))
+                audioManager.play("CantFire");
             coverImage.fillAmount = timer / cooldown;
         }
         if (Input.GetButtonDown("Fire1"))

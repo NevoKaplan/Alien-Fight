@@ -47,13 +47,43 @@ MonoBehaviour:
   sounds:
   - name: BulletSound
     clip: {fileID: 8300000, guid: 1ea36c63cd0c8c242904da6e65cc3d1f, type: 3}
-    volume: 0.14
-    pitch: 0.8
+    volume: 0.1
+    pitch: 1.2
     loop: 0
     source: {fileID: 0}
   - name: PlayerHit
     clip: {fileID: 8300000, guid: 8c9681f463717bc4cb7147eecfb03668, type: 3}
     volume: 0.389
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: UpgradeChosen
+    clip: {fileID: 8300000, guid: a0ad966987d58d244b4bbff55e49193f, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserSound
+    clip: {fileID: 8300000, guid: f602d1c26cd65d14eb0c8b8b7cd7ceec, type: 3}
+    volume: 0.6
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: RedDeath
+    clip: {fileID: 8300000, guid: 62d63b935bd99754b97c4e6eee10c353, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PurpleDeath
+    clip: {fileID: 8300000, guid: 46a507d0a175b044098f68e094a46788, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CantFire
+    clip: {fileID: 8300000, guid: ca1c3606c347ea94dac7d5bd6e9c3763, type: 3}
+    volume: 0.07
+    pitch: 1.1
     loop: 0
     source: {fileID: 0}

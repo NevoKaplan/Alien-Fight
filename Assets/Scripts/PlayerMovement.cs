@@ -44,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
         if (isInvincible) { return; }
         this.lives--;
         
+        audioManager.play("PlayerHit");
         if (lives > 0)
         {
-            audioManager.play("PlayerHit");
             StartCoroutine("Spawn");
         }
         else { Debug.Log("Player Destroyed");  Destroy(gameObject);}
