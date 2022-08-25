@@ -87,3 +87,9 @@ MonoBehaviour:
     pitch: 1.1
     loop: 0
     source: {fileID: 0}
+  - name: HoverSound
+    clip: {fileID: 8300000, guid: ca1c3606c347ea94dac7d5bd6e9c3763, type: 3}
+    volume: 0.07
+    pitch: 1.1
+    loop: 0
+    source: {fileID: 0}

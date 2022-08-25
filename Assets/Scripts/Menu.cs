@@ -15,4 +15,9 @@ public class Menu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    public void OnHover()
+    {
+        AudioManager.playSound("HoverSound");
+    }
 }

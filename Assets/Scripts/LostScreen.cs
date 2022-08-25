@@ -69,4 +69,9 @@ public class LostScreen : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void OnHover()
+    {
+        AudioManager.playSound("HoverSound");
+    }
 }
