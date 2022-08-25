@@ -11,12 +11,7 @@ public class WaveComplete : MonoBehaviour
     [SerializeField] Text Stats, chooseText;
     private int dmglvl = 1, rpdlvl = 1, spdlvl = 1;
     private bool letMult;
-    private AudioManager audioManager;
 
-    private void Start()
-    {
-        audioManager = FindObjectOfType<AudioManager>();
-    }
     public void UpdateText()
     {
         if (gameManager != null)
@@ -37,7 +32,7 @@ public class WaveComplete : MonoBehaviour
 
     void Restart() 
     {
-        audioManager.play("UpgradeChosen");
+        AudioManager.playSound("UpgradeChosen");
         gameManager.Restart(); 
     }
 

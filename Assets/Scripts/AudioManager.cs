@@ -21,13 +21,13 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        foreach (Sound s in sounds) 
+        for (int i = 0; i < sounds.Length; i++) 
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
+            sounds[i].source = gameObject.AddComponent<AudioSource>();
+            sounds[i].source.clip = sounds[i].clip;
+            sounds[i].source.volume = sounds[i].volume;
+            sounds[i].source.pitch = sounds[i].pitch;
+            sounds[i].source.loop = sounds[i].loop;
         }
     }
 
@@ -35,12 +35,23 @@ public class AudioManager : MonoBehaviour
     public void play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null) 
+        if (s == null || s.source == null) 
         {
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-            s.source.Play();
+        
+        s.source.PlayOneShot(s.clip);
+    }
+
+    public static void playSound(string name)
+    {
+        if (instance == null) 
+        {
+            Debug.LogWarning("No AudioManager");
+            return;
+        }
+        instance.play(name);
     }
 
     private void Start()

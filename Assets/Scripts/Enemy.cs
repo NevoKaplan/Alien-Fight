@@ -9,12 +9,10 @@ public class Enemy : MonoBehaviour
     private EnemyMovementType2 enemy;
     public System.Action killed;
     private GameManager gameManager;
-    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
         gameManager = GetComponentInParent<GameManager>();
         enemy = GetComponent<EnemyMovementType2>();
         if (enemy != null)
@@ -43,9 +41,9 @@ public class Enemy : MonoBehaviour
 
     void Die() {
         if (enemy != null)
-            audioManager.play("PurpleDeath");
+            AudioManager.playSound("PurpleDeath");
         else
-            audioManager.play("RedDeath");
+            AudioManager.playSound("RedDeath");
         Destroy(transform.parent.gameObject);
         Destroy(Instantiate(deathEffect.gameObject, transform.position, Quaternion.identity)as GameObject, 2);
         Destroy(gameObject);

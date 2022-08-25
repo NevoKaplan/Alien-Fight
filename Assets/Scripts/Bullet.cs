@@ -8,15 +8,13 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     private Rigidbody2D rb;
     public float damage;
-
-    AudioManager audioManager;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
-        audioManager.play("BulletSound");
+        AudioManager.playSound("BulletSound");
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
         StartCoroutine(DestroySelfAfterSeconds( destroyTime: 2f));
@@ -27,11 +25,11 @@ public class Bullet : MonoBehaviour
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null && enemy.health > 0)
         {
+            enemy.TakeDamage(damage);
             if (enemy.name == "Enemy 2")
             {
                 enemy.whenHit2();
             }
-            enemy.TakeDamage(damage);
         }
         if (hitInfo.name != "Bullet(Clone)" && hitInfo.name != "Missile(Clone)")
         {
