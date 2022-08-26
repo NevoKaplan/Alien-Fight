@@ -88,8 +88,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: HoverSound
-    clip: {fileID: 8300000, guid: ca1c3606c347ea94dac7d5bd6e9c3763, type: 3}
-    volume: 0.07
-    pitch: 1.1
+    clip: {fileID: 8300000, guid: f8afd9e41413d524b873085ddcc5da62, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ClickSound
+    clip: {fileID: 8300000, guid: df507c3f840a20d4f8f7b0dcb0163581, type: 3}
+    volume: 0.5
+    pitch: 1
     loop: 0
     source: {fileID: 0}

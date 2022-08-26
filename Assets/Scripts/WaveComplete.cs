@@ -89,13 +89,13 @@ public class WaveComplete : MonoBehaviour
         if (gameManager != null)
         {
             Weapon weapon = gameManager.player.GetComponent<Weapon>();
-            weapon.laserDamage *= 1.5f;
-            weapon.bulletDamage *= 1.5f;
+            weapon.laserDamage *= 1.54f;
+            weapon.bulletDamage *= 1.54f;
             dmglvl++;
             if (letMult) {
                 letMult = false;
-                weapon.laserDamage *= 1.5f;
-                weapon.bulletDamage *= 1.5f;
+                weapon.laserDamage *= 1.54f;
+                weapon.bulletDamage *= 1.54f;
                 dmglvl++;
             }
             Restart();

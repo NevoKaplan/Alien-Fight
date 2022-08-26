@@ -56,22 +56,30 @@ public class LostScreen : MonoBehaviour
 
     public void OnQuit()
     {
+        ButtonClicked();
         Debug.Log("Quit");
         Application.Quit();
     }
 
     public void OnHome() 
     {
+        ButtonClicked();
         SceneManager.LoadScene(0);
     }
 
     public void OnReplay() 
     {
+        ButtonClicked();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnHover()
     {
         AudioManager.playSound("HoverSound");
+    }
+
+    private void ButtonClicked()
+    {
+        AudioManager.playSound("ClickSound");
     }
 }

@@ -8,13 +8,17 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     private Rigidbody2D rb;
     public float damage;
-    
+
 
 
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         AudioManager.playSound("BulletSound");
+    }
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
         StartCoroutine(DestroySelfAfterSeconds( destroyTime: 2f));

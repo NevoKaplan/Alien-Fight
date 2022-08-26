@@ -7,11 +7,13 @@ public class Menu : MonoBehaviour
 {
     public void OnPlay()
     {
+        ButtonClicked();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnQuit()
     {
+        ButtonClicked();
         Debug.Log("Quit");
         Application.Quit();
     }
@@ -19,5 +21,10 @@ public class Menu : MonoBehaviour
     public void OnHover()
     {
         AudioManager.playSound("HoverSound");
+    }
+
+    private void ButtonClicked()
+    {
+        AudioManager.playSound("ClickSound");
     }
 }

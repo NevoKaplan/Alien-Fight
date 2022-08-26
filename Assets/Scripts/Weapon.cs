@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         shootClicked = false;
-        bulletsPerSecond = 4f;
+        bulletsPerSecond = 3.5f;
         player = GetComponent<PlayerMovement>();
         OGspeed = player.speed;
         Debug.Log("OGSPEED: " + OGspeed);
