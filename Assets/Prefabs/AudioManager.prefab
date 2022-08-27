@@ -99,3 +99,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: MissileSound
+    clip: {fileID: 8300000, guid: 9805c8ea2837c814f83c728313ad0f42, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

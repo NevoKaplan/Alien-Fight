@@ -25,8 +25,7 @@ public class GameManager : MonoBehaviour
     public int addBunker;
     private bool wClicked;
     [SerializeField] Text wText;
-
-    private AudioManager audioManager;
+    private List<Missle> missiles;
 
 
 
@@ -36,7 +35,6 @@ public class GameManager : MonoBehaviour
         addBunker = 0;
         playerMovement = player.GetComponent<PlayerMovement>();
         hearts = HeartContainer.GetComponent<Hearts>();
-        audioManager = FindObjectOfType<AudioManager>();
         Restart();
         score.text = "0";
         bunkers = new List<GameObject>();
@@ -136,6 +134,7 @@ public class GameManager : MonoBehaviour
 
     void missileAttack() 
     {
+        missiles = new List<Missle>();
         foreach (Transform enemy in this.transform)
         {
             if (enemy.name != "Bunker(Clone)" && enemy.name != "Missile(Clone)")
@@ -146,8 +145,22 @@ public class GameManager : MonoBehaviour
                     Missle missile = Instantiate(Missile, new Vector2(enemy2.position.x, (enemy2.position.y - 0.8f)), Quaternion.identity).GetComponent<Missle>();
                     missile.wave = wave;
                     missile.transform.SetParent(this.transform);
+                    missile.enabled = false;
+                    missiles.Add(missile);
                 }
             }
+        }
+        StartCoroutine(MissileDelay());
+
+    }
+
+    IEnumerator MissileDelay()
+    {
+        for (int i = 0; i < missiles.Count; i++)
+        {
+            AudioManager.playSound("MissileSound");
+            missiles[i].enabled = true;
+            yield return new WaitForSeconds(0.04f);
         }
     }
 
