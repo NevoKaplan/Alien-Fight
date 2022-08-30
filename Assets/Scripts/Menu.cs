@@ -23,6 +23,11 @@ public class Menu : MonoBehaviour
         AudioManager.playSound("HoverSound");
     }
 
+    public void OnOptions()
+    {
+        ButtonClicked();
+    }
+
     private void ButtonClicked()
     {
         AudioManager.playSound("ClickSound");

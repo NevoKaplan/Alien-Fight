@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class Bibi : MonoBehaviour
 {
+    
+    [SerializeField] Sprite happy, sad;
     [SerializeField] Text text;
+    private Image image;
     
     public void OpenURL() 
     {
@@ -14,10 +17,19 @@ public class Bibi : MonoBehaviour
         text.text = "Check Your Browser";
     }
 
-    void Update()
+    void Start()
     {
-        if (Input.anyKey) {
-            text.text = "Click On Me\n<-";
-        }
+        image = GetComponent<Image>();
+    }
+
+    public void ImageChange()
+    {
+        image.sprite = happy;
+    }
+
+    public void ImageChangeBack()
+    {
+        image.sprite = sad;
+        text.text = "Click On Me\n<-";
     }
 }
