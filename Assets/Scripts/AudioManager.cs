@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    [HideInInspector]
+    public float volume;
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,6 +31,7 @@ public class AudioManager : MonoBehaviour
             sounds[i].source.pitch = sounds[i].pitch;
             sounds[i].source.loop = sounds[i].loop;
         }
+        
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         
-        s.source.PlayOneShot(s.clip);
+        s.source.PlayOneShot(s.clip, volume);
     }
 
     public static void playSound(string name)

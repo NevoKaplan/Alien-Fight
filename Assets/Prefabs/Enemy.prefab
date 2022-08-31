@@ -8,12 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8863640229289959009}
+  - component: {fileID: 6951865950192968709}
   - component: {fileID: 8863640229289959005}
   - component: {fileID: 8863640229289959010}
   - component: {fileID: 8863640229289959011}
   - component: {fileID: 8863640229289959008}
   - component: {fileID: 5884064730859611762}
+  - component: {fileID: 3296210323394324822}
   m_Layer: 7
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -21,21 +22,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8863640229289959009
-Transform:
+--- !u!224 &6951865950192968709
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863640229289959014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.11, y: 0.11, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8863640230359860831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.03, y: 0}
+  m_SizeDelta: {x: 16.78, y: 16.48}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8863640229289959005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +176,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &3296210323394324822
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863640229289959014}
+  m_CullTransparentMesh: 1
 --- !u!1 &8863640229314123067
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8863640229289959009}
+  - {fileID: 6951865950192968709}
   - {fileID: 8863640229533826548}
   - {fileID: 8863640229314123066}
   - {fileID: 8863640229721739464}
