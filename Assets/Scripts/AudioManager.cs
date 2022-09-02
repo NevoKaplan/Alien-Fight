@@ -10,7 +10,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [HideInInspector]
-    public float volume;
+    public float Ivolume;
+
+    public Sound theme;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,7 +33,7 @@ public class AudioManager : MonoBehaviour
             sounds[i].source.pitch = sounds[i].pitch;
             sounds[i].source.loop = sounds[i].loop;
         }
-        
+        Ivolume = PlayerPrefs.GetFloat("SFXVol", 1f);
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         
-        s.source.PlayOneShot(s.clip, volume);
+        s.source.PlayOneShot(s.clip, Ivolume);
     }
 
     public static void playSound(string name)
@@ -59,6 +61,17 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        play("Theme");
+        theme.source = gameObject.AddComponent<AudioSource>();
+        theme.source.clip = theme.clip;
+        theme.source.volume = theme.volume;
+        theme.source.pitch = theme.pitch;
+        theme.source.loop = theme.loop;
+        theme.source.PlayOneShot(theme.clip, PlayerPrefs.GetFloat("MusicVol", 1f));
+
+    }
+
+    public void change(float volume)
+    {
+        theme.source.volume = volume;
     }
 }
