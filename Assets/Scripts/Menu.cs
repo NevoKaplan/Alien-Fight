@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] GameObject Pause;
+
+    private SettingsMenu settings;
+
+    private void Start()
+    {
+        settings = Pause.GetComponent<SettingsMenu>();
+    }
+
     public void OnPlay()
     {
         ButtonClicked();
@@ -23,13 +32,21 @@ public class Menu : MonoBehaviour
         AudioManager.playSound("HoverSound");
     }
 
-    public void OnOptions()
-    {
-        ButtonClicked();
-    }
-
     private void ButtonClicked()
     {
         AudioManager.playSound("ClickSound");
+    }
+
+    public void OnOptions()
+    {
+        ButtonClicked();
+        settings.OnVisible();
+        Pause.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            OnOptions();
     }
 }

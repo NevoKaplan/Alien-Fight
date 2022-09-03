@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +26,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text wText;
     private List<Missle> missiles;
 
+    [SerializeField] GameObject Pause;
+
+    private SettingsMenu settings;
 
 
     // Start is called before the first frame update
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
             bunk[i] = bunkers[i].GetComponentsInChildren<Bunker>();
         }
         InvokeRepeating("missileAttack", 3f, 1.25f);
+        settings = Pause.GetComponent<SettingsMenu>();
     }
 
     void Update()
@@ -58,7 +61,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject); }
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            SceneManager.LoadScene(0);
+            settings.OnVisible();
+            Pause.SetActive(true);
         }
         if (!wClicked && Input.GetKeyDown(KeyCode.W))
         {

@@ -46,6 +46,7 @@ public class LostScreen : MonoBehaviour
             {
                 if (!highScoreSet.activeInHierarchy)
                 {
+                    AudioManager.playSound("WinningSound");
                     highScoreSet.SetActive(true);
                     PlayerPrefs.SetInt("HighScore", gameScore);
                 }

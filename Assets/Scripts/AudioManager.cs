@@ -63,10 +63,10 @@ public class AudioManager : MonoBehaviour
     {
         theme.source = gameObject.AddComponent<AudioSource>();
         theme.source.clip = theme.clip;
-        theme.source.volume = theme.volume;
+        theme.source.volume = PlayerPrefs.GetFloat("MusicVol", 0.65f);
         theme.source.pitch = theme.pitch;
         theme.source.loop = theme.loop;
-        theme.source.PlayOneShot(theme.clip, PlayerPrefs.GetFloat("MusicVol", 1f));
+        theme.source.PlayOneShot(theme.clip);
 
     }
 

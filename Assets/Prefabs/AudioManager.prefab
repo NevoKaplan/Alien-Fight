@@ -53,7 +53,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerHit
     clip: {fileID: 8300000, guid: 8c9681f463717bc4cb7147eecfb03668, type: 3}
-    volume: 0.389
+    volume: 0.95
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -71,25 +71,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: RedDeath
     clip: {fileID: 8300000, guid: 62d63b935bd99754b97c4e6eee10c353, type: 3}
-    volume: 0.1
+    volume: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PurpleDeath
     clip: {fileID: 8300000, guid: 46a507d0a175b044098f68e094a46788, type: 3}
-    volume: 0.1
+    volume: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: CantFire
     clip: {fileID: 8300000, guid: ca1c3606c347ea94dac7d5bd6e9c3763, type: 3}
-    volume: 0.07
+    volume: 0.5
     pitch: 1.1
     loop: 0
     source: {fileID: 0}
   - name: HoverSound
     clip: {fileID: 8300000, guid: f8afd9e41413d524b873085ddcc5da62, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -105,7 +105,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  volume: 0
+  - name: WinningSound
+    clip: {fileID: 8300000, guid: 692ef210e25a7c449bfc7bd5637da525, type: 3}
+    volume: 0.9
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  Ivolume: 0
   theme:
     name: Theme
     clip: {fileID: 8300000, guid: 3fecc68098eda5d4ca9ca13363a2d199, type: 3}
