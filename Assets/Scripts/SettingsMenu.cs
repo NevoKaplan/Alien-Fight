@@ -12,6 +12,11 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] GameObject Pause;
     [SerializeField] TMP_Text Resume, Quit;
     [SerializeField] TMP_Dropdown qualityDropdown;
+    [SerializeField] Toggle toggle;
+
+    private static Resolution mainResolution;
+    private bool foundResolution = false;
+    private static bool opened = false;
 
     Resolution[] resolutions;
 
@@ -35,8 +40,17 @@ public class SettingsMenu : MonoBehaviour
         MusicSlider.value = PlayerPrefs.GetFloat("MusicVol", 0.65f);
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVol", 1f);
         
+        
         resolutions = Screen.resolutions;
-
+        if (!opened)
+        {
+            mainResolution = new Resolution();
+            mainResolution.width = 1920;
+            mainResolution.height = 1080;
+            mainResolution.refreshRate = 60;
+            opened = true;
+        }
+        toggle.isOn = Screen.fullScreen;
         qualityDropdown.ClearOptions();
 
         List<string> options = new List<string>();
@@ -48,8 +62,14 @@ public class SettingsMenu : MonoBehaviour
             string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + resolutions[i].refreshRate + "hz";
             options.Add(option);
 
-            if (resolutions[i].Equals(Screen.currentResolution))
+            if (resolutions[i].Equals(Screen.currentResolution) && !foundResolution)
             {
+                currentResolutionIndex = i;
+            }
+
+            if (resolutions[i].Equals(mainResolution))
+            {
+                foundResolution = true;
                 currentResolutionIndex = i;
             }
         }
@@ -127,14 +147,16 @@ public class SettingsMenu : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void SetFullscreen()
     {
-        Screen.fullScreen = isFullscreen;
+        Screen.fullScreen = !Screen.fullScreen;
+        
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
+        mainResolution = resolution;
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 }
