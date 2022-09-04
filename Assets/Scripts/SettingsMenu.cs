@@ -12,7 +12,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] GameObject Pause;
     [SerializeField] TMP_Text Resume, Quit;
     [SerializeField] TMP_Dropdown qualityDropdown;
-    [SerializeField] Toggle toggle;
+    [SerializeField] Toggle FullscreenToggle, VSyncToggle;
 
     private static Resolution mainResolution;
     private bool foundResolution = false;
@@ -50,7 +50,15 @@ public class SettingsMenu : MonoBehaviour
             mainResolution.refreshRate = PlayerPrefs.GetInt("refresh", 60);
             opened = true;
         }
-        toggle.isOn = Screen.fullScreen;
+        FullscreenToggle.isOn = Screen.fullScreen;
+        if (QualitySettings.vSyncCount == PlayerPrefs.GetInt("VSync", 1))
+        {
+            VSyncToggle.isOn = true;
+        }
+        else
+        {
+            VSyncToggle.isOn = false;
+        }
         qualityDropdown.ClearOptions();
 
         List<string> options = new List<string>();
@@ -161,5 +169,18 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("height", mainResolution.height);
         PlayerPrefs.SetInt("refresh", mainResolution.refreshRate);
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    
+    public void SetVSync(bool isVSync)
+    {
+        if (isVSync)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
+        PlayerPrefs.SetInt("VSync", QualitySettings.vSyncCount);
     }
 }

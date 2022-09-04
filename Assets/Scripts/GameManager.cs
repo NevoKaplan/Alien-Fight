@@ -162,9 +162,9 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < missiles.Count; i++)
         {
+            yield return new WaitForSeconds(0.04f);
             AudioManager.playSound("MissileSound");
             missiles[i].enabled = true;
-            yield return new WaitForSeconds(0.04f);
         }
     }
 
