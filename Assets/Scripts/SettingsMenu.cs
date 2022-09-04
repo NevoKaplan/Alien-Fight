@@ -45,9 +45,9 @@ public class SettingsMenu : MonoBehaviour
         if (!opened)
         {
             mainResolution = new Resolution();
-            mainResolution.width = 1920;
-            mainResolution.height = 1080;
-            mainResolution.refreshRate = 60;
+            mainResolution.width = PlayerPrefs.GetInt("width", 1920);
+            mainResolution.height = PlayerPrefs.GetInt("height", 1080);
+            mainResolution.refreshRate = PlayerPrefs.GetInt("refresh", 60);
             opened = true;
         }
         toggle.isOn = Screen.fullScreen;
@@ -157,6 +157,9 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         mainResolution = resolution;
+        PlayerPrefs.SetInt("width", mainResolution.width);
+        PlayerPrefs.SetInt("height", mainResolution.height);
+        PlayerPrefs.SetInt("refresh", mainResolution.refreshRate);
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 }
