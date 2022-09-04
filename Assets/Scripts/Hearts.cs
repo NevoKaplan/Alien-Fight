@@ -16,6 +16,9 @@ public class Hearts : MonoBehaviour
     [SerializeField] GameObject player;
     private PlayerMovement lives;
 
+    [HideInInspector]
+    public int heartsAdded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +37,16 @@ public class Hearts : MonoBehaviour
             copy[j] = hearts[j].GetComponent<Image>();
             
         }
+        heartsAdded = 1;
     }
 
     public void Restart()
     {
-        for (int i = 0; i < numOfHearts - 1; i++)
+        for (int i = 0; i < numOfHearts - heartsAdded; i++)
         {
             Destroy(copy[i]);
         }
+        heartsAdded = 1;
         hearts = new GameObject[numOfHearts];
         copy = new Image[numOfHearts];
         for (int j = 0; j < numOfHearts; j++)

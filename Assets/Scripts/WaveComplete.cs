@@ -74,10 +74,12 @@ public class WaveComplete : MonoBehaviour
             
             Hearts hearts = heartContainer.GetComponent<Hearts>();
             hearts.numOfHearts++;
+            hearts.heartsAdded = 1;
             if (letMult)
             {
                 letMult = false;
                 hearts.numOfHearts++;
+                hearts.heartsAdded = 2;
             }
             hearts.Restart();
             Restart();
